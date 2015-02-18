@@ -33,7 +33,7 @@
         return el;
     }
 
-    //draws a star . . . just kidding you fucking assholes!
+    //draws a star
 	function createCircle(cx,cy,r)
 	{
 		var circle = makeSVG('circle', 
@@ -56,9 +56,9 @@
 	{
 		for(circle in circles)
 		{
-			var randRed = Math.ceil(Math.random()*256);
-			var randGreen = Math.ceil(Math.random()*256);
-			var randBlue = Math.ceil(Math.random()*256);
+			var randRed = Math.floor(Math.random()*256);
+			var randGreen = Math.floor(Math.random()*256);
+			var randBlue = Math.floor(Math.random()*256);
 
 			var el = document.getElementById(circle);
 			var color = 255-parseInt(circles[circle].radius/80*255);
@@ -87,7 +87,10 @@
     	updateCircles();	
     }
 	
-	document.onclick = function(e){createCircle(e.pageX, e.pageY, 15)};
+	document.onclick = function(e)
+	{
+		createCircle(e.pageX, e.pageY, 15);
+	};
 
 	//execute the mainLoop funtion every 30 milliseconds
 	setInterval(mainLoop, 50);
